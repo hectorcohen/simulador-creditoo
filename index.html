@@ -14,66 +14,66 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/d4f66c06f9.js" crossorigin="anonymous"></script>
+
     <title>Simulador</title>
 </head>
 
 <body>
     <nav class="navbar navbar-light bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold text-light" href="#">Simulador</a>
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h5 class="text text-light">Simulador</h5>
+            </a>
         </div>
     </nav>
-    <div class="container mt-5">
-        <div class="row row-md-2">
-            <div class="col">
-                <!-- Form  -->
-                <div class="mb-3">
-                    <label class="form-label">Capital</label>
-                    <input id="capital" type="number" class="form-control">
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-12 col-sm-12 col-lg-6">
+                <h2 class="h2">Calcular credito</h2>
+                <div class="form-group mt-2 mb-3">
+                    <label for="monto">Monto</label>
+                    <input type="number" class="form-control" id="monto" placeholder="Ingresar monto">
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Cuotas</label>
-                    <select id="cuotas" class="form-control">
-                        <option selected disabled>Selecione numero de cuotas</option>
-                        <option value="12">12</option>
-                        <option value="24">24</option>
-                        <option value="36">36</option>
-                    </select>
+                <div class="form-group mt-2 mb-3">
+                    <label for="tiempo">Tiempo en Meses</label>
+                    <input type="number" class="form-control" id="tiempo" placeholder="Ingresar cantidad de meses"
+                        min="1" value="1">
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Intereses</label>
-                    <input id="intereses" type="number" class="form-control">
+                <div class="form-group mt-2 mb-3">
+                    <label for="interes">Interés Mensual %</label>
+                    <input type="number" class="form-control" id="interes"
+                        placeholder="Ingresar tasa de interés mensual">
                 </div>
-                <button id="boton-calcular" class="btn btn-primary">Calcular</button>
+                <div class="form-group mt-2 mb-3 alert alert-danger" hidden id="alert-error">
+                    Debes llenar todos los campos!
+                </div>
+                <button type="button" class="btn btn-primary" id="btnCalcular">Calcular</button>
             </div>
-            <div class="col">
-                <!-- Table -->
-                <table class="table table-striped table-hover">
+            <div class="col-12 col-sm-12 col-lg-6">
+                <table id="lista-tabla" class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Nro.</th>
-                            <th scope="col">Capital</th>
-                            <th scope="col">Interes</th>
-                            <th scope="col">Pago</th>
+                            <th>Fecha</th>
+                            <th>Amortización</th>
+                            <th>Interés</th>
+                            <th>Cuota</th>
+                            <th>Saldo</th>
                         </tr>
                     </thead>
-                    <tbody id="table-body">
-                        <!-- Render rows -->
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td class="row-total table-success">Total</td>
-                            <td id="row-1" class="table-success"></td>
-                            <td id="row-2" class="table-success"></td>
-                            <td id="row-3" class="table-success"></td>
-                        </tr>
-                    </tfoot>
+                    <tbody></tbody>
                 </table>
             </div>
         </div>
     </div>
+    <div class="fixed-bottom bg-primary">
+        <small class="text text-light"> &copy; Copyright 2022, Héctor Cohen Maldonado</small>
+    </div>
     <!-- JS functions -->
     <script src="/assets/js/index.js"></script>
+    <!-- DayJS -->
+    <script src="/assets/libs/dayjs.min.js"></script>
 </body>
 
 </html>
